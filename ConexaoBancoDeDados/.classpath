@@ -23,12 +23,12 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/ojdbc5.jar"/>
-	<classpathentry kind="lib" path="lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="lib/ons.jar"/>
-	<classpathentry kind="lib" path="lib/orai18n.jar"/>
-	<classpathentry kind="lib" path="lib/simplefan.jar"/>
-	<classpathentry kind="lib" path="lib/ucp.jar"/>
-	<classpathentry kind="lib" path="lib/xdb6.jar"/>
+	<classpathentry kind="lib" path="libs/ojdbc5.jar"/>
+	<classpathentry kind="lib" path="libs/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="libs/ons.jar"/>
+	<classpathentry kind="lib" path="libs/orai18n.jar"/>
+	<classpathentry kind="lib" path="libs/simplefan.jar"/>
+	<classpathentry kind="lib" path="libs/ucp.jar"/>
+	<classpathentry kind="lib" path="libs/xdb6.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
