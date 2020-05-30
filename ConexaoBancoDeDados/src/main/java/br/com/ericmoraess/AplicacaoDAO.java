@@ -1,6 +1,9 @@
 package br.com.ericmoraess;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
+import java.util.Properties;
 import java.util.Set;
 
 import br.com.ericmoraess.dao.HospitalDAO;
@@ -9,11 +12,11 @@ import br.com.ericmoraess.entidade.Hospital;
 
 public class AplicacaoDAO {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		HospitalDAO hospitalDAO = new HospitalDAOImp();
 		//povoar(hospitalDAO);
-		//listar(hospitalDAO);
-		excluir(hospitalDAO);
+		listar(hospitalDAO);
+		//excluir(hospitalDAO);
 	}
 	
 	public static void excluir(HospitalDAO dao) {

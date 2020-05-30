@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
+import br.com.ericmoraess.conexao.DataSourceFactory;
 import br.com.ericmoraess.conexao.FabricaDeConexoes;
 import br.com.ericmoraess.entidade.Hospital;
 
@@ -15,9 +16,9 @@ public class HospitalDAOImp implements HospitalDAO {
 
 	public Set<Hospital> getAll() {
 
-		Connection connection = FabricaDeConexoes.getConnection();
-
 		try {
+			//recuperar a conexão do DataSource
+			Connection connection = DataSourceFactory.getOracleDataSource().getConnection();
 
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM hospital");
