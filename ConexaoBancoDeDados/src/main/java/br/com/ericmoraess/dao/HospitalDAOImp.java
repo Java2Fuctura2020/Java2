@@ -10,11 +10,13 @@ import java.util.Set;
 
 import br.com.ericmoraess.conexao.DataSourceFactory;
 import br.com.ericmoraess.conexao.FabricaDeConexoes;
-import br.com.ericmoraess.entidade.Hospital;
+import br.com.ericmoraess.dao.filtro.ConsultarHospitalNome;
+import br.com.ericmoraess.dao.filtro.FiltroConsultarHospitalNome;
+import br.com.ericmoraess.entidade.VOHospital;
 
 public class HospitalDAOImp implements HospitalDAO {
 
-	public Set<Hospital> getAll() {
+	public Set<VOHospital> getAll() {
 
 		try {
 			//recuperar a conexão do DataSource
@@ -25,7 +27,7 @@ public class HospitalDAOImp implements HospitalDAO {
 			Set hospitals = new HashSet();
 
 			while (rs.next()) {
-				Hospital hospital = extractHospitalFromResultSet(rs);
+				VOHospital hospital = extractHospitalFromResultSet(rs);
 				hospitals.add(hospital);
 			}
 
@@ -42,17 +44,17 @@ public class HospitalDAOImp implements HospitalDAO {
 		return null;
 	}
 
-	private Hospital extractHospitalFromResultSet(ResultSet rs) throws SQLException {
-		Hospital Hospital = new Hospital();
+	private VOHospital extractHospitalFromResultSet(ResultSet rs) throws SQLException {
+		VOHospital Hospital = new VOHospital();
 		// coloca o nome da coluna ou indice
-		if (rs.getString(2) != null) {
-			Hospital.setRazao_social(rs.getString(2));
-		}
-		Hospital.setCapacidade(rs.getInt(6));
+//		if (rs.getString(2) != null) {
+//			Hospital.setRazao_social(rs.getString(2));
+//		}
+//		Hospital.setCapacidade(rs.getInt(6));
 		return Hospital;
 	}
 
-	public void insert(Hospital h) {
+	public void insert(VOHospital h) {
 		// TODO Auto-generated method stub
 		Connection connection = FabricaDeConexoes.getConnection();
 
@@ -66,11 +68,11 @@ public class HospitalDAOImp implements HospitalDAO {
 
 			PreparedStatement psmt = connection.prepareStatement(sb.toString());
 
-			psmt.setInt(5, h.getCapacidade());
-			psmt.setString(1, h.getNome_fantasia());
-			psmt.setDate(3, h.getData_abertura());
-			psmt.setString(2, h.getCnpj());
-			psmt.setString(4, h.getRazao_social());
+//			psmt.setInt(5, h.getCapacidade());
+//			psmt.setString(1, h.getNome_fantasia());
+//			psmt.setDate(3, h.getData_abertura());
+//			psmt.setString(2, h.getCnpj());
+//			psmt.setString(4, h.getRazao_social());
 
 			boolean resultado = psmt.execute();
 
@@ -84,14 +86,17 @@ public class HospitalDAOImp implements HospitalDAO {
 
 	}
 
-	public void update(Hospital h) {
+	public void update(VOHospital h) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void delete(Hospital h) {
+	public void delete(VOHospital h) {
+
 		// TODO Auto-generated method stub
 		Connection connection = FabricaDeConexoes.getConnection();
+		
+		/*
 		
 		try {
 			
@@ -135,6 +140,11 @@ public class HospitalDAOImp implements HospitalDAO {
 			ex.printStackTrace();
 
 		}
-
+		*/
 	}
+
+	public Set<VOHospital> getAll(FiltroConsultarHospitalNome filtroConsultarNome) {
+		return ConsultarHospitalNome.getInstancia().consultar(filtroConsultarNome);
+	}
+
 }
