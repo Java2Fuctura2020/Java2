@@ -13,6 +13,7 @@ public class VOHospital extends Entidade {
 	public static final String NM_ATR_Dt_abertura = "data_abertura";
 	public static final String NM_ATR_Nm_Razao_Social = "razao_social";
 	public static final String NM_ATR_Nu_Capacidade = "capacidade";
+	public static final String NM_TABELA = "HOSPITAL";
 	
 	private String nomeFantasia;
 	private String numCNPJ;

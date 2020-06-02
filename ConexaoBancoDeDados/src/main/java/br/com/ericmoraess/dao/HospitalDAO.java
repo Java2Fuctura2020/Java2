@@ -13,6 +13,6 @@ public interface HospitalDAO {
 	
 	
 	//consultas específicas
-	public	Set<VOHospital>getAll(FiltroConsultarHospitalNome filtroConsultarNome);
+	public Set<VOHospital> getAll(FiltroConsultarHospitalNome filtro);
 	
 }

@@ -10,8 +10,7 @@ import br.com.ericmoraess.entidade.VOHospital;
 public class ConsultarHospitalNome {
 	public static ConsultarHospitalNome instancia = new ConsultarHospitalNome();
 	
-	private static final String QUERY = "SELECT ";	
-	
+	private static final String QUERY = "SELECT * FROM " + VOHospital.NM_TABELA;	
 	
 	public static ConsultarHospitalNome getInstancia() {
 		if(instancia == null) {
@@ -24,7 +23,18 @@ public class ConsultarHospitalNome {
 	public Set<VOHospital> consultar(FiltroConsultarHospitalNome filtro){
 		try {
 			
+			StringBuilder sb = new StringBuilder();
+			
 			Connection conn = DataSourceFactory.getOracleDataSource().getConnection();
+			
+			if(filtro.isRazaoSocialAlterado()) {
+				sb.append( filtro.NM_COL_NmFantasia + " LIKE ? " );
+			}
+			
+			
+			if(filtro.isNumCapacidadeAlterado()) {
+				sb.append( filtro.NM_COL_NumCapacidade + " = ? " );
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
