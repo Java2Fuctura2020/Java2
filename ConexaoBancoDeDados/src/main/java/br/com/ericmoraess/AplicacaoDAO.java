@@ -1,19 +1,24 @@
 package br.com.ericmoraess;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Iterator;
-import java.util.Properties;
 import java.util.Set;
 
 import br.com.ericmoraess.dao.HospitalDAO;
 import br.com.ericmoraess.dao.HospitalDAOImp;
-import br.com.ericmoraess.entidade.VOHospital;
+import br.com.ericmoraess.dao.filtro.FiltroConsultarHospitalNome;
 
 public class AplicacaoDAO {
 	
 	public static void main(String[] args) throws IOException {
 		HospitalDAO hospitalDAO = new HospitalDAOImp();
+		
+		FiltroConsultarHospitalNome filtro = new FiltroConsultarHospitalNome();
+		filtro.setNmRazaoSocial("Santa Joana");
+		filtro.setNumCapacidade(30);
+		
+		Set retorno = hospitalDAO.getAll(filtro);
+		
+		
 		//povoar(hospitalDAO);
 		//listar(hospitalDAO);
 		//excluir(hospitalDAO);

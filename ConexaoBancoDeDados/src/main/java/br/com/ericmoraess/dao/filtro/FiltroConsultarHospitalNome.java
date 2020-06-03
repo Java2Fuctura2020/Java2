@@ -3,8 +3,8 @@ package br.com.ericmoraess.dao.filtro;
 import br.com.ericmoraess.entidade.VOHospital;
 
 public class FiltroConsultarHospitalNome {
-	public static final String NM_COL_NmFantasia = VOHospital.NM_ATR_Nm_Fantasia;
-	public static final String NM_COL_NumCapacidade = VOHospital.NM_ATR_Nu_Capacidade;
+	public static final String COL_NmFantasia = VOHospital.ATR_Nm_Fantasia;
+	public static final String COL_NumCapacidade = VOHospital.ATR_Nu_Capacidade;
 
 	private String nmRazaoSocial;
 	private int numCapacidade;
@@ -23,6 +23,7 @@ public class FiltroConsultarHospitalNome {
 
 	public void setNmRazaoSocial(String nmRazaoSocial) {
 		this.nmRazaoSocial = nmRazaoSocial;
+		this.isRazaoSocialAlterado = true;
 	}
 
 	public void setRazaoSocialAlterado(boolean isRazaoSocialAlterado) {

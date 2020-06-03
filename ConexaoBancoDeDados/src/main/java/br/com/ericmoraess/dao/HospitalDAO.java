@@ -11,7 +11,6 @@ public interface HospitalDAO {
 	public void update(VOHospital h);
 	public void delete(VOHospital h);
 	
-	
 	//consultas específicas
 	public Set<VOHospital> getAll(FiltroConsultarHospitalNome filtro);
 	
